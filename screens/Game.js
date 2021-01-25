@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Alert, Button, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import Card from "../components/Card";
 import MainButton from "../components/MainButton";
 import NumberContainer from "../components/NumberContainer";
 import TitleText from "../components/TitleText";
+import { Ionicons } from "@expo/vector-icons";
 
 const generateRandomBewteen = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -66,10 +67,10 @@ const Game = (props) => {
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonsContainer}>
         <MainButton onPress={nextGuessHandler.bind(this, "lower")}>
-          LOWER
+          <Ionicons name="md-remove" size={24} color="white" />
         </MainButton>
         <MainButton onPress={nextGuessHandler.bind(this, "greater")}>
-          GREATER
+          <Ionicons name="md-add" size={24} color="white" />
         </MainButton>
       </Card>
     </View>
