@@ -4,13 +4,14 @@ import {
   Button,
   Keyboard,
   StyleSheet,
-  Text,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
 import Card from "../components/Card";
+import DefaultText from "../components/DefaultText";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
+import TitleText from "../components/TitleText";
 import Colors from "../constants/colors";
 
 const StartGame = (props) => {
@@ -50,7 +51,7 @@ const StartGame = (props) => {
   if (confirmed) {
     confirmedOutput = (
       <Card style={styles.summaryContainer}>
-        <Text>You selected</Text>
+        <DefaultText>You selected</DefaultText>
         <NumberContainer>{selectedNumber}</NumberContainer>
         <Button
           title="START GAME"
@@ -67,9 +68,9 @@ const StartGame = (props) => {
       }}
     >
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a New Game!</Text>
+        <TitleText style={styles.title}>Start a New Game!</TitleText>
         <Card style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <DefaultText>Select a Number</DefaultText>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -108,11 +109,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     alignItems: "center",
-  },
-  title: {
-    fontSize: 20,
-    marginVertical: 10,
-    fontFamily: "open-sans-bold",
   },
   inputContainer: {
     width: 300,
