@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import Header from "./components/Header";
 import GameOver from "./screens/GameOver";
-import GameScreen from "./screens/GameScreen";
+import Game from "./screens/Game";
 import StartGame from "./screens/StartGame";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -45,7 +45,7 @@ export default function App() {
   let game = <StartGame onStartGame={startGameHandler} />;
 
   if (userNumber && guessRounds <= 0) {
-    game = <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />;
+    game = <Game userChoice={userNumber} onGameOver={gameOverHandler} />;
   } else if (guessRounds > 0) {
     game = (
       <GameOver

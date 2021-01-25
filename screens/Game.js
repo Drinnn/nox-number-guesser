@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Alert, Button, StyleSheet, View } from "react-native";
 import Card from "../components/Card";
+import MainButton from "../components/MainButton";
 import NumberContainer from "../components/NumberContainer";
 import TitleText from "../components/TitleText";
 
@@ -15,7 +16,7 @@ const generateRandomBewteen = (min, max, exclude) => {
   }
 };
 
-const GameScreen = (props) => {
+const Game = (props) => {
   const [currentGuess, setCurrentGuess] = useState(
     generateRandomBewteen(1, 100, props.userChoice)
   );
@@ -64,11 +65,12 @@ const GameScreen = (props) => {
       <TitleText>Computer's guess</TitleText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonsContainer}>
-        <Button title="LOWER" onPress={nextGuessHandler.bind(this, "lower")} />
-        <Button
-          title="GREATER"
-          onPress={nextGuessHandler.bind(this, "greater")}
-        />
+        <MainButton onPress={nextGuessHandler.bind(this, "lower")}>
+          LOWER
+        </MainButton>
+        <MainButton onPress={nextGuessHandler.bind(this, "greater")}>
+          GREATER
+        </MainButton>
       </Card>
     </View>
   );
@@ -84,9 +86,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
-    width: 300,
-    maxWidth: "80%",
+    width: 400,
+    maxWidth: "90%",
   },
 });
 
-export default GameScreen;
+export default Game;
